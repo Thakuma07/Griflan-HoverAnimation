@@ -49,7 +49,9 @@ services.forEach((service, index) => {
         engine = Engine.create({ gravity: { x: 0, y: 2 } });
 
         const wallThickness = 20;
-        const floorOffset = window.innerWidth < 1000 ? 25 : 50;
+        let floorOffset = 50;
+        if (window.innerWidth < 600) floorOffset = 15;
+        else if (window.innerWidth < 1000) floorOffset = 25;
 
         const floor = Bodies.rectangle(
             serviceWidth / 2,
@@ -144,7 +146,9 @@ services.forEach((service, index) => {
 
     service.addEventListener("mouseenter", () => {
         isHovered = true;
-        const expandedHeight = window.innerWidth < 1000 ? "12.5rem" : "25rem";
+        let expandedHeight = "25rem";
+        if (window.innerWidth < 600) expandedHeight = "10rem";
+        else if (window.innerWidth < 1000) expandedHeight = "12.5rem";
 
         gsap.killTweensOf(service);
         gsap.killTweensOf(serviceImages);
@@ -176,7 +180,9 @@ services.forEach((service, index) => {
 
     service.addEventListener("mouseleave", () => {
         isHovered = false;
-        const collapsedHeight = window.innerWidth < 1000 ? "5rem" : "10rem";
+        let collapsedHeight = "12rem";
+        if (window.innerWidth < 600) collapsedHeight = "4rem";
+        else if (window.innerWidth < 1000) collapsedHeight = "6rem";
 
         if (tagDropTimer) tagDropTimer.kill();
 
