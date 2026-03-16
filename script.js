@@ -4,9 +4,9 @@ import Matter from "matter-js";
 const services = document.querySelectorAll(".service");
 
 const serviceTagsList = [
-    "Editorial, Fashion Identity, Monochorome, Shadow Play, Minimalism, Studio Portraits".split(", "),
-    "Visual Energy, Poster Design, Color Theory, Pop Art, Saturation, Graphics".split(", "),
-    "Character Design, Portraits, Visual Storytelling, Emotion, Identity, Artistic Direction".split(", ")
+    "Apparel, Campaign, Logo Design, Photo Direction, Naming, Packaging, Brand Identity, Illustration & Iconcography, Deisgn System & Guides, Copywriting & Content Creation".split(", "),
+    "Content Managemnet (CMS), E-Commerce, Web Development, Web Design, Content Strategy, User Experience".split(", "),
+    "3D Animation, 2D Animation, Motion Identity, Video, Motion Design, Story Boarding & Style Development".split(", ")
 ];
 
 const { Engine, World, Bodies, Body } = Matter;
@@ -22,90 +22,90 @@ function getTagDimensions(label) {
 }
 
 services.forEach((service, index) => {
-  const serviceImages = service.querySelectorAll(".img");
-  const serviceName = service.querySelector("h1");
+    const serviceImages = service.querySelectorAll(".img");
+    const serviceName = service.querySelector("h1");
 
-  const tagLabels = serviceTagsList[index] || [];
-  const tagSizes = tagLabels.map((label) => getTagDimensions(label));
+    const tagLabels = serviceTagsList[index] || [];
+    const tagSizes = tagLabels.map((label) => getTagDimensions(label));
 
-  let engine = null;
-  let tagElements = [];
-  let tagBodies = [];
-  let rafId = null;
-  let tagsContainer = null;
-  let isHovered = false;
-  let tagDropTimer = null;
+    let engine = null;
+    let tagElements = [];
+    let tagBodies = [];
+    let rafId = null;
+    let tagsContainer = null;
+    let isHovered = false;
+    let tagDropTimer = null;
 
-  function createTags() {
-    cleanupTags();
+    function createTags() {
+        cleanupTags();
 
-    const serviceWidth = service.offsetWidth;
-    const serviceHeight = service.offsetHeight;
+        const serviceWidth = service.offsetWidth;
+        const serviceHeight = service.offsetHeight;
 
-    tagsContainer = document.createElement("div");
-    tagsContainer.classList.add("tags-container");
-    service.appendChild(tagsContainer);
+        tagsContainer = document.createElement("div");
+        tagsContainer.classList.add("tags-container");
+        service.appendChild(tagsContainer);
 
-    engine = Engine.create({ gravity: { x: 0, y: 2 } });
+        engine = Engine.create({ gravity: { x: 0, y: 2 } });
 
-    const wallThickness = 20;
-    const floorOffset = window.innerWidth < 1000 ? 25 : 50;
+        const wallThickness = 20;
+        const floorOffset = window.innerWidth < 1000 ? 25 : 50;
 
-    const floor = Bodies.rectangle(
-        serviceWidth / 2,
-        serviceHeight - floorOffset + wallThickness / 2,
-        serviceWidth * 3,
-        wallThickness,
-        { isStatic: true },
-    );
+        const floor = Bodies.rectangle(
+            serviceWidth / 2,
+            serviceHeight - floorOffset + wallThickness / 2,
+            serviceWidth * 3,
+            wallThickness,
+            { isStatic: true },
+        );
 
-    const leftWall = Bodies.rectangle(
-        -wallThickness / 2,
-        serviceHeight / 2,
-        wallThickness,
-        serviceHeight * 3,
-        { isStatic: true },
-    );
+        const leftWall = Bodies.rectangle(
+            -wallThickness / 2,
+            serviceHeight / 2,
+            wallThickness,
+            serviceHeight * 3,
+            { isStatic: true },
+        );
 
-    const rightWall = Bodies.rectangle(
-        serviceWidth + wallThickness / 2,
-        serviceHeight / 2,
-        wallThickness,
-        serviceHeight * 3,
-        { isStatic: true },
-    );
+        const rightWall = Bodies.rectangle(
+            serviceWidth + wallThickness / 2,
+            serviceHeight / 2,
+            wallThickness,
+            serviceHeight * 3,
+            { isStatic: true },
+        );
 
-    World.add(engine.world, [floor, leftWall, rightWall]);
+        World.add(engine.world, [floor, leftWall, rightWall]);
 
-    tagLabels.forEach((label, i) => {
-        const tagElement = document.createElement("div");
-        tagElement.classList.add("tag");
-        tagElement.textContent = label;
-        tagsContainer.appendChild(tagElement);
+        tagLabels.forEach((label, i) => {
+            const tagElement = document.createElement("div");
+            tagElement.classList.add("tag");
+            tagElement.textContent = label;
+            tagsContainer.appendChild(tagElement);
 
-        const tagWidth = tagSizes[i].width;
-        const tagHeight = tagSizes[i].height;
+            const tagWidth = tagSizes[i].width;
+            const tagHeight = tagSizes[i].height;
 
-        const startX = serviceWidth * 0.25 + Math.random() * serviceWidth * 0.5;
-        const startY = -(tagHeight / 2) - i * 5;
-        const angle = (Math.random() - 0.5) * 0.4;
+            const startX = serviceWidth * 0.25 + Math.random() * serviceWidth * 0.5;
+            const startY = -(tagHeight / 2) - i * 5;
+            const angle = (Math.random() - 0.5) * 0.4;
 
-        const body = Bodies.rectangle(startX, startY, tagWidth, tagHeight, {
-            chamfer: { radius: tagHeight / 2 },
-            restitution: 0.15,
-            friction: 0.6,
-            density: 0.002,
-        });
+            const body = Bodies.rectangle(startX, startY, tagWidth, tagHeight, {
+                chamfer: { radius: tagHeight / 2 },
+                restitution: 0.15,
+                friction: 0.6,
+                density: 0.002,
+            });
 
-        Body.setAngle(body, angle);
-        World.add(engine.world, body);
+            Body.setAngle(body, angle);
+            World.add(engine.world, body);
 
-        gsap.to(tagElement, {
-            opacity: 1,
-            duration: 0.3,
-            delay: i * 0.04,
-            ease: "power2.out",
-        });
+            gsap.to(tagElement, {
+                opacity: 1,
+                duration: 0.3,
+                delay: i * 0.04,
+                ease: "power2.out",
+            });
 
             tagElements.push(tagElement);
             tagBodies.push(body);
@@ -120,9 +120,9 @@ services.forEach((service, index) => {
                 const tagWidth = tagSizes[i].width;
                 const tagHeight = tagSizes[i].height;
 
-                tagElement.style.transform = `translate(${body.position.x - 
-                tagWidth / 2}px, ${body.position.y - tagHeight / 2}px) rotate(${body.
-                angle}rad)`;
+                tagElement.style.transform = `translate(${body.position.x -
+                    tagWidth / 2}px, ${body.position.y - tagHeight / 2}px) rotate(${body.
+                        angle}rad)`;
             }
 
             rafId = requestAnimationFrame(update);
