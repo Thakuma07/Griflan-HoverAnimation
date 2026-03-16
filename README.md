@@ -2,6 +2,9 @@
 
 A stunning, fully responsive hover animation project utilizing Vite, GSAP, and Matter.js. This project transforms a static layout into an interactive visual experience where related tags dynamically fall and interact with physics bounded within their service containers when hovered over.
 
+## Website Preview
+![Website Preview](./assets/preview.png)
+
 ![Features & Interactions](https://img.shields.io/badge/Vite-Ready-brightgreen.svg)
 ![Mobile Responsive](https://img.shields.io/badge/Responsive-Mobile%20%26%20Tablet-blue)
 
