@@ -1,14 +1,16 @@
 @font-face {
-  font-family: 'Barlow Condensed';
-  src: url(./fonts/HTxwL3I-JCGChYJ8VI-L6OO_au7B45L0_3E.ttf) format('truetype');
+    font-family: 'Barlow Condensed';
+    src: url(./fonts/HTxwL3I-JCGChYJ8VI-L6OO_au7B45L0_3E.ttf) format('truetype');
 }
+
 @font-face {
-  font-family: 'Instrument Serif';
-  src: url(./fonts/jizBRFtNs2ka5fXjeivQ4LroWlx-2zI.ttf) format('truetype');
+    font-family: 'Instrument Serif';
+    src: url(./fonts/jizBRFtNs2ka5fXjeivQ4LroWlx-2zI.ttf) format('truetype');
 }
+
 @font-face {
-  font-family: 'TANMEMORIES';
-  src: url(./fonts/TANMEMORIES-Regular.DJ3BjhRc.woff2) format('woff2');
+    font-family: 'TANMEMORIES';
+    src: url(./fonts/TANMEMORIES-Regular.DJ3BjhRc.woff2) format('woff2');
 }
 
 
@@ -33,20 +35,21 @@ img {
 .services {
     position: relative;
     width: 100%;
-    height: 100svh;
-    padding: 2rem;
+    min-height: 100svh;
+    padding: 8rem 2rem;
     background-color: var(--bg-color);
     color: var(--before-text-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 3rem;
 }
 
 .service {
     position: relative;
     width: max-content;
-    height: 10rem;
+    height: 12rem;
     display: flex;
     align-items: flex-end;
     will-change: height;
@@ -60,7 +63,7 @@ img {
     font-family: "TANMEMORIES", sans-serif;
     font-size: 10rem;
     font-weight: 400;
-    letter-spacing: -0.1rem;
+    letter-spacing: 0.5rem;
     line-height: 1.1;
     background-color: var(--bg-color);
     z-index: 2;
@@ -128,12 +131,12 @@ img {
 }
 
 .header-text h2 {
-    font-family: "Instrument Serif", serif;
-    font-size: 4rem;
+    font-family: "TANMEMORIES", serif;
+    font-size: 5rem;
     color: var(--after-text-color);
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: -0.05rem;
+    font-weight: 200;
+    line-height: 1.5;
+    letter-spacing: 0.2rem;
 }
 
 .btn {
@@ -141,7 +144,7 @@ img {
     padding: 0.8rem 2rem;
     background-color: var(--before-text-color);
     color: #fff;
-    font-family: "Barlow Condensed", sans-serif;
+    font-family: "TANMEMORIES", sans-serif;
     font-size: 1.5rem;
     position: relative;
     overflow: hidden;
@@ -175,16 +178,23 @@ img {
 }
 
 @media (max-width: 999px) {
+    .services {
+        padding: 6rem 1.5rem;
+        gap: 2.5rem;
+    }
+
     .service {
-        height: 5rem;
+        height: 6rem;
     }
 
     .service-name h1 {
         font-size: 5rem;
+        letter-spacing: 0.2rem;
     }
 
     .header-text h2 {
         font-size: 3rem;
+        letter-spacing: 0.1rem;
     }
 
     .btn {
@@ -193,26 +203,76 @@ img {
         padding: 0.6rem 1.5rem;
     }
 
-    .services-images {
-        width: 12.5rem;
-        height: 10rem;
+    .service-images {
+        width: 16rem;
+        height: 12rem;
     }
 
     .img {
-        width: 7.5rem;
-        height: 5rem;
+        width: 9rem;
+        height: 6rem;
     }
 
     .img:nth-child(1) {
-        margin-top: -0.75rem;
+        margin-top: -1rem;
     }
 
     .img:nth-child(2) {
-        margin-top: -0.75rem;
+        margin-top: -1rem;
     }
 
     .tag {
-        font-size: 0.75rem;
-        padding: 0.25rem 0.75rem;
+        font-size: 0.9rem;
+        padding: 0.35rem 1rem;
+    }
+}
+
+@media (max-width: 599px) {
+    .services {
+        padding: 4rem 1rem;
+        gap: 1.5rem;
+    }
+
+    .service {
+        height: 4rem;
+    }
+
+    .service-name h1 {
+        font-size: 3rem;
+        letter-spacing: 0.1rem;
+    }
+
+    .header-text h2 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+
+    .btn {
+        margin-top: 1rem;
+        font-size: 1rem;
+        padding: 0.5rem 1.2rem;
+    }
+
+    .service-images {
+        width: 12rem;
+        height: 9rem;
+    }
+
+    .img {
+        width: 6rem;
+        height: 4rem;
+    }
+
+    .img:nth-child(1) {
+        margin-top: -0.5rem;
+    }
+
+    .img:nth-child(2) {
+        margin-top: -0.5rem;
+    }
+
+    .tag {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
     }
 }
